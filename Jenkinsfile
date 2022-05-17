@@ -13,9 +13,10 @@ node {
 		withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
 		app.push()
 		app.push("latest")
+
+	}
+	}
 """
-	}
-	}
 
 	stage('Deploy') {
 		sh ("docker run -d -p 81:8080 -v /var/log/:/var/log/ ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
