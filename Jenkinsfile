@@ -1,6 +1,6 @@
 node {
 	def application = "springbootapp"
-	def dockerhubaccountid = "sonal04"
+	def dockerhubaccountid = "sachenbach333"
 	stage('Clone repository') {
 		checkout scm
 	}
@@ -10,7 +10,7 @@ node {
 	}
 
 	stage('Push image') {
-		withDockerRegistry([ credentialsId: "dockerHub", url: "" ]) {
+		withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
 		app.push()
 		app.push("latest")
 	}
